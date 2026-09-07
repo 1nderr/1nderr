@@ -1,4 +1,11 @@
-## Hi there 👋
+## Sup 👋
+
+<table>
+<tr>
+<td><img src="https://github-readme-stats.vercel.app/api?username=is386&show_icons=true&theme=nord" /></td>
+<td><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=is386&layout=compact&theme=nord" /></td>
+</tr>
+</table>
 
 <!--
 **is386/is386** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
