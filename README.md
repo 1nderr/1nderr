@@ -1,6 +1,6 @@
-## Sup 👋
+## Hi there 👋
 
-I'm **1nder**! I enjoy coding emulators, video games, discord bots, and fun little programs that may or may not make my life easier.
+I enjoy coding emulators, video games, discord bots, and fun little programs that may or may not make my life easier.
 
 - <img src="assets/neovim.svg" width="20" height="20" align="absmiddle" /> [Neovim](https://github.com/is386/nvim) is my editor
 - <img src="assets/zoxide.svg" width="19" height="20" align="absmiddle" /> [Zoxide](https://github.com/ajeetdsouza/zoxide) is one of my favorite command-line tools
