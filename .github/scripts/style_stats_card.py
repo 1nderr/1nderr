@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
-"""Give each stat icon its own color.
+"""Bring the generated stats card in line with the languages card.
 
-The stats card only accepts a single icon_color, so the generated SVG is
-rewritten here: each icon gets an inline fill, which beats the card's
-`.icon { fill: ... }` rule. Icons are matched by the label that follows them,
-so reordering or hiding stats cannot mis-assign a color.
+Two things the card cannot express through its own options:
 
-Usage: color_stat_icons.py <svg> <dark|light>
+  icons  it accepts a single icon_color, so each icon is given an inline fill
+         here (inline style beats the card's `.icon` class rule)
+  type   its body text is 600 14px against the languages card's 400 12px
+
+Icons are matched by the label that follows them, so reordering or hiding
+stats cannot mis-assign a color.
+
+Usage: style_stats_card.py <svg> <dark|light>
 """
 
 import re
@@ -36,6 +40,9 @@ LABEL_KEYS = [
 
 ICON_TAG = '<svg data-testid="icon"'
 
+# Must stay in step with the .lang rule in build_lang_card.py.
+BODY_FONT = "400 12px 'Segoe UI', Ubuntu, Sans-Serif"
+
 
 def key_for(label):
     low = label.lower()
@@ -60,6 +67,18 @@ def recolor(svg, palette):
     return ICON_TAG.join(out), colored
 
 
+def restyle_text(svg):
+    """Match the languages card's body type: 400 12px, same stack."""
+    svg, n = re.subn(
+        r"(\.stat\s*\{\s*)font:[^;]+;",
+        lambda m: f"{m.group(1)}font: {BODY_FONT};",
+        svg,
+    )
+    # the card shrinks .stat again for Firefox; 12px is already the target
+    svg = re.sub(r"(\.stat\s*\{\s*)font-size:\s*[\d.]+px;", r"\g<1>font-size: 12px;", svg)
+    return svg, n
+
+
 def main():
     if len(sys.argv) != 3 or sys.argv[2] not in PALETTES:
         sys.exit(f"usage: {sys.argv[0]} <svg> <{'|'.join(PALETTES)}>")
@@ -68,9 +87,10 @@ def main():
     with open(path, encoding="utf-8") as f:
         svg = f.read()
     svg, colored = recolor(svg, PALETTES[variant])
+    svg, restyled = restyle_text(svg)
     with open(path, "w", encoding="utf-8") as f:
         f.write(svg)
-    print(f"{path}: colored {colored} icons ({variant})")
+    print(f"{path}: colored {colored} icons, restyled {restyled} text rules ({variant})")
 
 
 if __name__ == "__main__":

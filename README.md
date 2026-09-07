@@ -11,10 +11,10 @@ I'm **1nder**! I enjoy coding emulators, video games, discord bots, and fun litt
 <p align="left">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="profile/stats.svg" />
-    <img height="165" src="profile/stats-light.svg" alt="is386's GitHub stats" />
+    <img src="profile/stats-light.svg" alt="is386's GitHub stats" align="top" />
   </picture>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="profile/top-langs.svg" />
-    <img height="165" src="profile/top-langs-light.svg" alt="Top languages" />
+    <img src="profile/top-langs-light.svg" alt="Top languages" align="top" />
   </picture>
 </p>

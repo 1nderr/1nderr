@@ -176,6 +176,8 @@ def render(langs, colors, variant):
     .title {{ font: 600 18px {FONT}; fill: {title_color} }}
     .lang {{ font: 400 12px {FONT}; fill: {text_color} }}
     .pct {{ text-anchor: end }}
+    /* the stats card shrinks its header on Firefox; match it */
+    @supports(-moz-appearance: auto) {{ .title {{ font-size: 15.5px }} }}
   </style>
   <text x="25" y="32" class="title">Most Used Languages</text>
   <g clip-path="url(#bar)">
