@@ -9,6 +9,12 @@ I'm **1nder**! I enjoy coding emulators, video games, discord bots, and fun litt
 - ⌨️ My keyboard is a [Keychron V1 Ultra](https://www.keychron.com/products/keychron-v1-ultra-8k-wireless-custom-mechanical-keyboard) with [Keygeek Y2 switches](https://unikeyboards.com/products/keygeek-y2-linear-switch-factory-lubed-10pcs)
 
 <p align="left">
-  <img height="165" src="profile/stats.svg" alt="is386's GitHub stats" />
-  <img height="165" src="profile/top-langs.svg" alt="Top languages" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="profile/stats.svg" />
+    <img height="165" src="profile/stats-light.svg" alt="is386's GitHub stats" />
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="profile/top-langs.svg" />
+    <img height="165" src="profile/top-langs-light.svg" alt="Top languages" />
+  </picture>
 </p>

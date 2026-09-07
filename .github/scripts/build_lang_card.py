@@ -52,9 +52,15 @@ EXCLUDE_DIRS = [
 
 TOP_N = 8
 WIDTH = 300
-TITLE_COLOR = "#4493f8"
-TEXT_COLOR = "#ffffff"
 FONT = "'Segoe UI', Ubuntu, Sans-Serif"
+
+# One SVG cannot follow the viewer's theme, so a variant is rendered for each
+# and the README picks between them with prefers-color-scheme. Colors are
+# GitHub's own default text and link colors for that theme.
+VARIANTS = {
+    "dark": {"text": "#ffffff", "title": "#4493f8"},
+    "light": {"text": "#1f2328", "title": "#0969da"},
+}
 
 
 def api(path):
@@ -138,8 +144,10 @@ def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def render(langs, colors):
+def render(langs, colors, variant):
     """langs: list of (name, lines), already sorted and truncated."""
+    text_color = VARIANTS[variant]["text"]
+    title_color = VARIANTS[variant]["title"]
     total = sum(n for _, n in langs)
     rows = (len(langs) + 1) // 2
     height = 78 + rows * 22
@@ -165,8 +173,8 @@ def render(langs, colors):
 
     return f"""<svg width="{WIDTH}" height="{height}" viewBox="0 0 {WIDTH} {height}" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .title {{ font: 600 18px {FONT}; fill: {TITLE_COLOR} }}
-    .lang {{ font: 400 12px {FONT}; fill: {TEXT_COLOR} }}
+    .title {{ font: 600 18px {FONT}; fill: {title_color} }}
+    .lang {{ font: 400 12px {FONT}; fill: {text_color} }}
     .pct {{ text-anchor: end }}
   </style>
   <text x="25" y="32" class="title">Most Used Languages</text>
@@ -211,9 +219,13 @@ def main():
         sys.exit("no languages counted")
 
     os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
-    with open(out, "w", encoding="utf-8") as f:
-        f.write(render(top, language_colors()))
-    print(f"wrote {out}")
+    palette = language_colors()
+    base, ext = os.path.splitext(out)
+    for variant in VARIANTS:
+        path = out if variant == "dark" else f"{base}-{variant}{ext}"
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(render(top, palette, variant))
+        print(f"wrote {path}")
 
 
 if __name__ == "__main__":

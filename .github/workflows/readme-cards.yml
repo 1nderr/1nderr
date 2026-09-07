@@ -31,6 +31,21 @@ jobs:
           path: profile/stats.svg
           token: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
 
+      # Same card in GitHub's light-theme colors; the README picks between them.
+      - name: Generate stats card (light)
+        uses: stats-organization/github-readme-stats-action@d82657a0e215a28ec48bfc9b3987999a279f93be
+        with:
+          card: stats
+          options: show_icons=true&hide_rank=true&hide_border=true&bg_color=00000000&text_color=1f2328&title_color=0969da&icon_color=0969da
+          path: profile/stats-light.svg
+          token: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
+
+      # The card only takes one icon_color, so the icons are recolored after.
+      - name: Color stat icons
+        run: |
+          python3 .github/scripts/color_stat_icons.py profile/stats.svg dark
+          python3 .github/scripts/color_stat_icons.py profile/stats-light.svg light
+
       # The languages card is built here rather than by the action above: the
       # GitHub API only reports bytes per language, and the action's repo-count
       # mode is order-dependent rather than a real count. Counting lines needs
