@@ -40,11 +40,12 @@ jobs:
           path: profile/stats-light.svg
           token: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
 
-      # The card only takes one icon_color, so the icons are recolored after.
-      - name: Color stat icons
+      # The card takes only one icon_color and its own body type, so per-icon
+      # colors and the languages card's font are applied afterwards.
+      - name: Style stats card
         run: |
-          python3 .github/scripts/color_stat_icons.py profile/stats.svg dark
-          python3 .github/scripts/color_stat_icons.py profile/stats-light.svg light
+          python3 .github/scripts/style_stats_card.py profile/stats.svg dark
+          python3 .github/scripts/style_stats_card.py profile/stats-light.svg light
 
       # The languages card is built here rather than by the action above: the
       # GitHub API only reports bytes per language, and the action's repo-count
