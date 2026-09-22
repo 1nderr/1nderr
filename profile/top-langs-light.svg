@@ -10,12 +10,12 @@
   <g clip-path="url(#bar)">
     <rect x="25.00" y="45" width="66.73" height="8" fill="#00ADD8"/>
     <rect x="91.73" y="45" width="52.97" height="8" fill="#3572A5"/>
-    <rect x="144.70" y="45" width="49.87" height="8" fill="#355570"/>
-    <rect x="194.57" y="45" width="26.65" height="8" fill="#3178c6"/>
-    <rect x="221.22" y="45" width="25.79" height="8" fill="#b07219"/>
-    <rect x="247.01" y="45" width="10.14" height="8" fill="#e34c26"/>
-    <rect x="257.15" y="45" width="9.42" height="8" fill="#f1e05a"/>
-    <rect x="266.57" y="45" width="8.43" height="8" fill="#000080"/>
+    <rect x="144.69" y="45" width="49.87" height="8" fill="#355570"/>
+    <rect x="194.56" y="45" width="26.65" height="8" fill="#3178c6"/>
+    <rect x="221.21" y="45" width="25.79" height="8" fill="#b07219"/>
+    <rect x="247.00" y="45" width="10.14" height="8" fill="#e34c26"/>
+    <rect x="257.14" y="45" width="9.42" height="8" fill="#f1e05a"/>
+    <rect x="266.56" y="45" width="8.44" height="8" fill="#000080"/>
   </g>
   <clipPath id="bar"><rect x="25" y="45" width="250" height="8" rx="4"/></clipPath>
   <circle cx="30" cy="74" r="5" fill="#00ADD8"/><text x="42" y="78" class="lang">Go</text><text x="155" y="78" class="lang pct">26.7%</text>
