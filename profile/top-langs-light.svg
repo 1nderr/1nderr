@@ -8,14 +8,14 @@
   </style>
   <text x="25" y="32" class="title">Most Used Languages</text>
   <g clip-path="url(#bar)">
-    <rect x="25.00" y="45" width="66.96" height="8" fill="#00ADD8"/>
-    <rect x="91.96" y="45" width="53.16" height="8" fill="#3572A5"/>
-    <rect x="145.12" y="45" width="50.05" height="8" fill="#355570"/>
-    <rect x="195.17" y="45" width="26.74" height="8" fill="#3178c6"/>
-    <rect x="221.91" y="45" width="25.89" height="8" fill="#b07219"/>
-    <rect x="247.80" y="45" width="10.17" height="8" fill="#e34c26"/>
-    <rect x="257.97" y="45" width="9.46" height="8" fill="#f1e05a"/>
-    <rect x="267.43" y="45" width="7.57" height="8" fill="#000080"/>
+    <rect x="25.00" y="45" width="66.97" height="8" fill="#00ADD8"/>
+    <rect x="91.97" y="45" width="53.16" height="8" fill="#3572A5"/>
+    <rect x="145.13" y="45" width="50.05" height="8" fill="#355570"/>
+    <rect x="195.18" y="45" width="26.75" height="8" fill="#3178c6"/>
+    <rect x="221.92" y="45" width="25.89" height="8" fill="#b07219"/>
+    <rect x="247.81" y="45" width="10.17" height="8" fill="#e34c26"/>
+    <rect x="257.98" y="45" width="9.46" height="8" fill="#f1e05a"/>
+    <rect x="267.44" y="45" width="7.56" height="8" fill="#000080"/>
   </g>
   <clipPath id="bar"><rect x="25" y="45" width="250" height="8" rx="4"/></clipPath>
   <circle cx="30" cy="74" r="5" fill="#00ADD8"/><text x="42" y="78" class="lang">Go</text><text x="155" y="78" class="lang pct">26.8%</text>
